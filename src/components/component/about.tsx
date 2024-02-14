@@ -1,7 +1,6 @@
 export function AboutComponent() {
   return (
     <div>
-      
       <section className="py-12 lg:py-24">
         <div className="container grid items-center gap-4 px-4 text-center md:gap-8 md:px-6 lg:grid-cols-2 lg:text-left xl:gap-10">
           <div className="space-y-4">
@@ -20,7 +19,7 @@ export function AboutComponent() {
               alt="Avatar"
               className="rounded-full overflow-hidden"
               height="400"
-              src="/chadra.jpg"
+              src="/chandra.jpg"
               style={{
                 aspectRatio: "400/400",
                 objectFit: "cover",

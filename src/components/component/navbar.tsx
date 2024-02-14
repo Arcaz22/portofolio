@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex items-center justify-between p-4">
-      <div className="text-2xl font-bold">Porto</div>
+      <img src="https://cdn.icon-icons.com/icons2/1875/PNG/512/task_120291.png" className="h-8 w-8 rounded-full bg-white" alt="" />
       <ul className="flex space-x-4">
         <Link href="/">
           <li className={`mr-3 ${pathname === "/" ? "text-red-300" : "text-white"} cursor-pointer`}>About</li>
