@@ -4,24 +4,28 @@ import { cn } from "@/lib/utils";
 type CardProps = {
   imageUrl: string;
   projectName: string;
+  children: React.ReactNode;
+  centerContent?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, imageUrl, projectName, ...rest }, ref) => (
+  ({ className, imageUrl, projectName, children, centerContent = false, ...rest }, ref) => (
     <div
       ref={ref}
       className={cn(
-        "rounded-lg border border-gray-200 bg-white text-gray-950 shadow-sm dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50",
+        "rounded-lg bg-gray-950text-gray-950 shadow-sm dark:text-gray-50 flex flex-wrap",
         className
       )}
       {...rest}
     >
-      <div className="relative h-48 overflow-hidden rounded-t-lg">
-        <img src={imageUrl} alt={projectName} className="w-full h-full object-cover" />
+      <div className="w-full md:w-1/2">
+        <div className="relative h-72 overflow-hidden rounded-t-lg">
+          <img src={imageUrl} alt={projectName} className="w-full h-full rounded-full" />
+        </div>
       </div>
-      <div className="p-6">
-        <h3 className="text-2xl font-semibold leading-none tracking-tight">{projectName}</h3>
-      </div>
+      <div className={`w-full md:w-1/2 ${centerContent ? "flex justify-center items-center" : ""}`}>
+        {children}
+      </div>  
     </div>
   )
 );
