@@ -1,29 +1,37 @@
 :root {
-  --background-color: #fff;
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --secondary-text-color: #333333;
   --btn-color: #0987f2;
-  --btn-text-color: #fff;
-  --project-card-bg: #ffffff00;
-  --text-color: #222;
-  --form-text-color: #555;
-  --footer-text-color: #888;
+  --btn-text-color: #ffffff;
+  --project-card-bg: #ffffff;
+  --footer-text-color: #555555;
+  --accent-color: #0987f2;
+  --icon-bg-color: #000000;
+  --icon-text-color: #ffffff;
+  --vertical-line-color: #cccccc;
 }
 
 [data-theme='dark'] {
-  --background-color: #222;
-  --btn-color: #fff;
-  --btn-text-color: #222;
-  --project-card-bg: #fff;
-  --text-color: #fff;
-  --form-text-color: #fff;
-  --footer-text-color: #bbb;
+  --background-color: #222222;
+  --text-color: #ffffff;
+  --secondary-text-color: #bbbbbb;
+  --btn-color: #ffffff;
+  --btn-text-color: #222222;
+  --project-card-bg: #333333;
+  --footer-text-color: #bbbbbb;
+  --accent-color: #1e90ff;
+  --icon-bg-color: #1e90ff;
+  --icon-text-color: #ffffff;
+  --vertical-line-color: #555555;
 }
 
 body {
   background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
   display: flex;
   justify-content: center;
-  margin: 0 auto 60px;
-  color: var(--text-color);
 }
 
 #root {
@@ -36,9 +44,9 @@ h1,
 h2,
 h3,
 p {
-  color: var(--text-color);
   margin: 0;
   padding: 0;
+  color: var(--text-color);
 }
 
 h2,
@@ -50,6 +58,7 @@ p {
 h1,
 h2 {
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 h2,
@@ -64,20 +73,64 @@ h1 {
 
 p {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
+  color: var(--secondary-text-color);
 }
 
 .sectionTitle {
   margin-bottom: 30px;
 }
 
-.hover {
-  cursor: pointer;
-}
-
-button {
+button, .icon-container {
   background-color: var(--btn-color);
   color: var(--btn-text-color);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.icon-container {
+  background-color: var(--icon-bg-color);
+  color: var(--icon-text-color);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.vertical-line {
+  border-right: 2px solid var(--vertical-line-color);
+  height: 100%;
+}
+
+@media (max-width: 800px) {
+  #root {
+    gap: 60px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  h2,
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 14px;
+  }
+
+  .sectionTitle {
+    margin-bottom: 30px;
+  }
 }
 
 @media (min-width: 800px) {

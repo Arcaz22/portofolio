@@ -2,6 +2,7 @@ import './assets/styles/App.css'
 import { ThemeProvider } from './components/ThemeContext';
 import Contact from './pages/Contact';
 import Hero from './pages/Hero';
+import Journey from './pages/Journey';
 import Projects from './pages/Project';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <ThemeProvider>
       <Hero />
       <Projects />
+      <Journey />
       <Contact />
     </ThemeProvider>
     </>
