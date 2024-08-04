@@ -65,7 +65,7 @@ function Hero() {
               color: 'var(--btn-text-color)',
             }}
           >
-            Resume
+            Download CV
           </button>
         </a>
       </div>
