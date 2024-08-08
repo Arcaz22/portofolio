@@ -10,7 +10,7 @@ const experiences = [
       ],
     },
     {
-      title: 'Bangkit 2023 Cohot - Cloud Computing',
+      title: 'Bangkit 2023 Cohort - Cloud Computing',
       company: 'Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka',
       dates: 'Feb 2023 - Jul 2023',
       responsibilities: [
@@ -45,6 +45,5 @@ const experiences = [
       ],
     },
   ];
-  
+
   export default experiences;
-  
