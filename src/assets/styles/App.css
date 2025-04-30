@@ -10,6 +10,7 @@
   --icon-bg-color: #000000;
   --icon-text-color: #ffffff;
   --vertical-line-color: #cccccc;
+  --warning-color: #ff6b6b;
 }
 
 [data-theme='dark'] {
@@ -108,6 +109,25 @@ a:hover {
   transition: background-color 0.3s, color 0.3s;
 }
 
+.sidebar-enter {
+    animation: slideIn 0.5s ease forwards;
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  .sidebar-enter > div {
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
 .vertical-line {
   border-right: 2px solid var(--vertical-line-color);
   height: 100%;
@@ -157,6 +177,11 @@ a:hover {
   #root {
     gap: 200px;
   }
+
+  .sidebar-enter {
+    display: none !important;
+  }
+
   h1 {
     font-size: 48px;
   }

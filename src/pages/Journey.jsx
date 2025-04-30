@@ -9,7 +9,7 @@ function JourneyPage() {
       className="flex flex-col items-center justify-center min-h-screen w-full p-6"
       style={{
         backgroundColor: 'var(--background-color)',
-        color: 'var(--text-color)',
+        color: 'var(--text-color)'
       }}
     >
       <h1 className="text-4xl font-bold mb-12" style={{ color: 'var(--text-color)' }}>

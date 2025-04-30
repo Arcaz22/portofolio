@@ -7,19 +7,23 @@ function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      form.current,
-      import.meta.env.VITE_EMAILJS_USER_ID
-    )
-      .then((result) => {
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_USER_ID
+      )
+      .then(
+        (result) => {
           console.log(result.text);
           alert('Message sent successfully!');
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
           alert('Failed to send message. Please try again.');
-      });
+        }
+      );
   };
 
   return (
@@ -27,7 +31,9 @@ function Contact() {
       <h1 className="text-3xl font-bold mb-8">Contact</h1>
       <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6 w-full max-w-lg">
         <div className="flex flex-col">
-          <label htmlFor="from_name" className="sr-only">Name</label>
+          <label htmlFor="from_name" className="sr-only">
+            Name
+          </label>
           <input
             type="text"
             name="from_name"
@@ -38,7 +44,9 @@ function Contact() {
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="reply_to" className="sr-only">Email</label>
+          <label htmlFor="reply_to" className="sr-only">
+            Email
+          </label>
           <input
             type="email"
             name="reply_to"
@@ -49,7 +57,9 @@ function Contact() {
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="message" className="sr-only">Message</label>
+          <label htmlFor="message" className="sr-only">
+            Message
+          </label>
           <textarea
             name="message"
             id="message"
@@ -59,9 +69,13 @@ function Contact() {
           ></textarea>
         </div>
         <input
-          className="hover:scale-105 transform transition duration-200 ease-in-out active:translate-y-1 active:shadow-none bg-blue-500 text-white border-none rounded-lg w-32 h-12 font-bold shadow-md mx-auto cursor-pointer"
+          className="hover:scale-105 transform transition duration-200 ease-in-out active:translate-y-1 active:shadow-none rounded-full py-2 px-4 md:px-6 text-sm md:text-lg font-bold shadow-md"
           type="submit"
           value="Submit"
+          style={{
+            backgroundColor: 'var(--btn-color)',
+            color: 'var(--btn-text-color)'
+          }}
         />
       </form>
     </section>

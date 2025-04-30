@@ -14,12 +14,17 @@ function JourneyCard({ title, company, dates, responsibilities }) {
         <h3 className="text-xl font-semibold mb-1" style={{ color: 'var(--text-color)' }}>
           {title}
         </h3>
-        <div className="text-gray-600 dark:text-gray-400 mb-2" style={{ color: 'var(--secondary-text-color)' }}>
+        <div
+          className="text-gray-600 dark:text-gray-400 mb-2"
+          style={{ color: 'var(--secondary-text-color)' }}
+        >
           {company} | {dates}
         </div>
         <ul className="list-disc ml-5" style={{ color: 'var(--secondary-text-color)' }}>
           {responsibilities.map((item, index) => (
-            <li key={index} className="mb-2">{item}</li>
+            <li key={index} className="mb-2">
+              {item}
+            </li>
           ))}
         </ul>
       </div>
