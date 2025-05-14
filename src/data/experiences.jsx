@@ -15,7 +15,7 @@ const experiences = [
     company: 'Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka',
     dates: 'Feb 2023 - Jul 2023',
     responsibilities: [
-      'Created APIs using Express.js and FastAPI for capstone project',
+      'Created APIs using Express js and FastAPI for capstone project',
       'Implemented cloud infrastructure on Google Cloud Platform',
       'Collaborated in a cross-functional team of 6 members',
       'Achieved certification in Google Cloud Platform'
@@ -26,7 +26,7 @@ const experiences = [
     company: 'BIGIO.ID',
     dates: 'Aug 2023 - Dec 2023',
     responsibilities: [
-      'Developed and maintained RESTful APIs using Express.js',
+      'Developed and maintained RESTful APIs using Express js',
       'Ensured the stability and performance of web applications',
       'Collaborated with frontend team for API integration',
       'Participated in code reviews and testing procedures'
@@ -43,14 +43,12 @@ const experiences = [
     ]
   },
   {
-    title: 'Software Developer',
+    title: 'Software Developer Freelancer',
     company: 'PT. Kunci Transformasi Digital',
     dates: 'Jun 2024 - Mar 2025',
     responsibilities: [
-      'Developed APIs for competition management using Express.js',
-      'Implemented authentication and authorization systems',
-      'Handled deployment tasks using VPS and Docker',
-      'Integrated payment gateway systems'
+      'Developed APIs for competition management using Express js',
+      'Handled deployment tasks using VPS and Docker'
     ]
   },
   {

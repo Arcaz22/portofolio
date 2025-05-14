@@ -1,4 +1,3 @@
-import React from 'react';
 import heroImg from '../assets/images/profil.png';
 import sun from '../assets/images/sun.svg';
 import moon from '../assets/images/moon.svg';
@@ -18,10 +17,10 @@ function Hero() {
 
   return (
     <section
-  id="hero"
-  className="flex flex-col md:flex-row justify-center items-center min-h-screen w-full p-6 container mx-auto"
-  style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}
->
+      id="hero"
+      className="flex flex-col md:flex-row justify-center items-center min-h-screen w-full p-6 container mx-auto"
+      style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}
+    >
       <div className="relative mb-8 md:mb-0 md:mr-8">
         <img
           src={heroImg}
@@ -64,7 +63,7 @@ function Hero() {
         >
           A versatile software developer with a focus on backend systems development
         </p>
-        <a href={CV} download className="relative group">
+        <a href={CV} download>
           <button
             className="rounded-full py-2 px-4 md:px-6 text-sm md:text-lg font-bold shadow-md transition transform hover:scale-105 active:translate-y-1"
             style={{
@@ -74,17 +73,6 @@ function Hero() {
           >
             Download CV
           </button>
-          <span
-            className="absolute left-full ml-4 py-1 px-2 rounded-md text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
-            style={{
-              backgroundColor: 'var(--warning-color)',
-              color: 'var(--btn-text-color)',
-              top: '50%',
-              transform: 'translateY(-50%)'
-            }}
-          >
-            CV not up to date!
-          </span>
         </a>
       </div>
     </section>
