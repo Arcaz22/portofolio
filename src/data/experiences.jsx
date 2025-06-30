@@ -56,7 +56,7 @@ const experiences = [
     company: 'Saka Sakti Inovasi',
     dates: 'Oct 2024 - Apr 2025',
     responsibilities: [
-      'Developed and maintained APIs for various functionalities',
+      'Develop and maintain APIs using framework express js, spring boot, fast api',
       'Integrated APIs with other systems and services'
     ]
   },
@@ -65,7 +65,7 @@ const experiences = [
     company: 'Saka Sakti Inovasi',
     dates: 'Apr 2025 - Now',
     responsibilities: [
-      'Developed and maintained APIs for various functionalities',
+      'Develop and maintain APIs using framework spring boot, fast api, go',
       'Integrated APIs with other systems and services'
     ]
   }
