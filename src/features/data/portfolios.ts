@@ -40,7 +40,7 @@ export const portfolios: Portfolio[] = [
         "Gemini 2.5 Flash (NLP & Vision)",
         "Telegram Bot API",
         "Docker",
-        "GitHub Actions",
+        "GitHub Action",
       ],
     },
     link: "http://t.me/SarekatBot",
