@@ -39,17 +39,24 @@ export function PortfolioCarousel() {
               </span>
             ))}
           </div>
-          <p className="text-xs sm:text-sm text-slate-300 mb-3 sm:mb-4 leading-relaxed font-medium">
-            To explore the live demo, click this link to access the {" "}
-            <a
-              href={current.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-amber-500 hover:text-amber-400 underline decoration-amber-500/30 underline-offset-4 transition-colors"
-            >
-              Telegram Bot
-            </a>.
-          </p>
+          {current.link && (
+            <p className="text-xs sm:text-sm text-slate-300 mb-3 sm:mb-4 leading-relaxed font-medium">
+              To explore the live demo, click this link to access the {" "}
+              <a
+                href={current.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-500 hover:text-amber-400 underline decoration-amber-500/30 underline-offset-4 transition-colors"
+              >
+                {(() => {
+                  if (current.link.includes('t.me')) return 'Telegram Bot';
+                  if (current.link.includes('github.com')) return 'GitHub Repo';
+                  if (current.link.includes('vercel.app')) return 'Live Site';
+                  return 'Project Link';
+                })()}
+              </a>.
+            </p>
+          )}
         </div>
 
         <div className="space-y-3">
