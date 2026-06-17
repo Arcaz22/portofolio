@@ -4,11 +4,13 @@ export interface Experience {
   year: string;
 }
 
-export interface SocialLinks {
-  linkedin: string;
-  github: string;
-  email: string;
-}
+export type SocialPlatform =
+  | "linkedin"
+  | "github"
+  | "email"
+  | "medium"
+
+export type SocialLinks = Partial<Record<SocialPlatform, string>>;
 
 export interface ProfileData {
   name: string;
@@ -18,7 +20,7 @@ export interface ProfileData {
   bio: string;
   status: string;
   statusLocation: string;
-  yearsExperience: number;
+  yearsExperience: number | string;
   experience: Experience[];
   social: SocialLinks;
 }

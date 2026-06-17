@@ -1,3 +1,10 @@
+import type { ProfileData, SocialLinks } from "@/features/portofolio";
+
+type ExtendedProfileData = ProfileData & {
+  resumeUrl: string;
+  resumePdfUrl: string;
+};
+
 export const profile = {
   name: "Chandra Arcychan Azfar",
   title: "Software Engineer",
@@ -30,5 +37,6 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/chandra-arcychan-azfar/",
     github: "https://github.com/Arcaz22",
     email: "mailto:chandraarcychan@gmail.com",
-  },
-} as const;
+    medium: "https://medium.com/@chandraarcychan",
+  } as SocialLinks,
+} satisfies ExtendedProfileData;

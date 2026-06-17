@@ -11,11 +11,11 @@ export function ExperienceCard() {
         <div className="flex h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.8)]" />
       </div>
 
-      <div className="hidden sm:flex flex-1 relative overflow-hidden">
+      <div className="flex flex-1 relative min-h-[150px] overflow-hidden">
         <div className="absolute inset-0 overflow-y-auto pr-2 space-y-0 no-scrollbar scroll-smooth">
 
           {profile.experience.map((exp, idx) => (
-            <div key={idx} className="relative pl-5 group/item pb-6 last:pb-2">
+            <div key={idx} className="relative pl-5 group/item pb-4 sm:pb-6 last:pb-2">
 
               {idx !== profile.experience.length - 1 && (
                 <div className="absolute left-[4.5px] top-3 bottom-0 w-[0.5px] bg-slate-800 group-hover/item:bg-slate-700 transition-colors" />
