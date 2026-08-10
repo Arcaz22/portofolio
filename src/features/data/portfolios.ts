@@ -46,6 +46,34 @@ export const portfolios: Portfolio[] = [
     link: "http://t.me/SarekatBot",
   },
   {
+    "title": "MATCH – AI-Powered Outfit Recommendation System",
+    "category": ["AI", "Fashion", "Frontend", "Backend"],
+    "description": "A smart outfit recommendation platform that suggests personalized looks based on user's skin tone, body shape, and existing wardrobe items.",
+    "year": "2026",
+    "caseStudy": {
+      "overview": "Building an intelligent fashion assistant that helps users maximize their existing wardrobe. MATCH leverages computer vision and generative AI to analyze the user's physical attributes (skin tone, body shape) and recommends outfit combinations from clothes they already own at home — reducing decision fatigue and promoting sustainable fashion.",
+      "challenge": "Most fashion recommendation apps assume users have a large catalog or push new products for purchase. The real challenge was building a system that works with limited, user-uploaded wardrobe data while delivering accurate, flattering recommendations. Additionally, determining skin tone and body shape from photos required robust visual AI, and recommending harmonious color palettes needed deep understanding of color theory and fashion principles.",
+      "solution": "Developed a full-stack platform (React + FastAPI) with a multi-stage AI pipeline. Users upload photos of their clothing items and a selfie. The system uses advanced computer vision to extract garment attributes (color, category, style) and analyze the user's skin tone (warm/cool/neutral) and body shape (hourglass, pear, apple, etc.). A recommendation engine then generates outfit pairings based on color harmony rules, silhouette compatibility, and occasion preferences — all from the user's existing wardrobe.",
+      "results": [
+        "Wardrobe Utilization: Helps users rediscover and combine items they already own, reducing unnecessary clothing purchases.",
+        "Personalized Styling: Delivers AI-generated outfit suggestions tailored to individual body types and complexion.",
+        "Sustainable Fashion: Encourages a circular wardrobe mindset by maximizing use of existing items.",
+        "Seamless User Experience: Built with a modern, responsive React frontend and secure FastAPI backend, deployed on Vercel for optimal performance."
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "FastAPI",
+        "Python",
+        "PostgreSQL",
+        "Ollama",
+        "Vercel",
+        "Tailwind CSS"
+      ]
+    },
+    "link": "https://analation-fashion-fe.vercel.app"
+  },
+  {
     "title": "Monitoring Automation",
     "category": ["Automation", "Backend", "WhatsApp", "Productivity"],
     "description": "A focused automation service that scans Trello boards and dispatches nightly task reminders to team members via WhatsApp at 10 PM.",
