@@ -16,6 +16,36 @@ export interface Portfolio {
 
 export const portfolios: Portfolio[] = [
   {
+    title: "Social Deck",
+    category: ["Backend", "Game API", "WebSocket", "Realtime"],
+    description: "A Go backend API for social card games such as Truth or Dare, Truth or Truth, and Talk More with room-based realtime gameplay.",
+    year: "2026",
+    caseStudy: {
+      overview:
+        "Social Deck is an API service for social card games. It handles authentication, deck and card management, game rooms, game state, and realtime gameplay events through WebSocket connections.",
+      challenge:
+        "Social card games need more than simple REST endpoints. The backend has to coordinate room ownership, player joins, turn order, played cards, realtime broadcasts, and secure WebSocket access without relying on Authorization headers during the socket connection.",
+      solution:
+        "Built a Go API using Gin for REST routes, PostgreSQL for persistent data, Redis for short-lived WebSocket tickets and room-related state, and Gorilla WebSocket for realtime events. The flow supports register/login, public deck retrieval, room creation with host assignment, room join by code, one-time WebSocket tickets, turn-based card drawing, result submission, and game completion.",
+      results: [
+        "Complete Auth Flow: Supports register, login, token refresh, logout, and current-user endpoints with Bearer token access.",
+        "Deck Management: Provides system seed decks for Truth or Dare Classic, Truth or Truth, and Talk More, plus CRUD endpoints for decks and cards.",
+        "Room-Based Gameplay: Hosts can create rooms, players can join by code, and the backend maintains room state, player turns, played cards, and game lifecycle.",
+        "Secure Realtime Layer: WebSocket connections use short-lived, one-time tickets that expire in 30 seconds and are generated through authenticated REST requests.",
+      ],
+      technologies: [
+        "Go",
+        "Gin",
+        "PostgreSQL",
+        "Redis",
+        "Gorilla WebSocket",
+        "Swagger",
+        "Docker Compose",
+      ],
+    },
+    link: "https://github.com/Arcaz22/socialdeck.git",
+  },
+  {
     title: "AI-Powered Financial Management Bot",
     category: ["Bot", "Financial", "AI", "Backend"],
     description: "A smart Telegram bot leveraging Generative AI for automated expense tracking, receipt OCR, and team debt management.",

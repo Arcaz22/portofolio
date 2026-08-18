@@ -7,10 +7,10 @@ type ExtendedProfileData = ProfileData & {
 
 export const profile = {
   name: "Chandra Arcychan Azfar",
-  title: "Software Engineer",
+  title: "Software Developer",
   location: "Bandung, Indonesia",
   based: "Based in Bandung",
-  bio: "Software Engineer",
+  bio: "Software Developer",
   status: "Available for hire",
   statusLocation: "Remote / Bandung",
   yearsExperience: "2+",
