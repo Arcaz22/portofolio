@@ -46,6 +46,39 @@ export const portfolios: Portfolio[] = [
     link: "https://github.com/Arcaz22/socialdeck.git",
   },
   {
+    title: "CompanyCheck.id",
+    category: ["Fullstack", "AI Integration", "SvelteKit", "Web Development"],
+    description: "A SvelteKit application that generates comprehensive company research reports from public sources using AI (Gemini/Ollama) and Tavily Search, helping job seekers make informed decisions before applying.",
+    year: "2026",
+    caseStudy: {
+      overview:
+        "CompanyCheck.id is a modern web application designed to help job seekers research target companies efficiently. It automates the process of gathering public information, analyzing it with Large Language Models (LLMs), and presenting a structured report containing company profiles, salary estimates, red flags, and sentiment analysis.",
+      challenge:
+        "Gathering reliable, structured company insights from scattered public sources is time-consuming and prone to bias. The technical challenge involved orchestrating external API calls (Tavily Search), managing LLM context windows and timeouts, validating unstructured AI outputs into strict data schemas, and ensuring fast subsequent loads through effective caching without compromising data freshness.",
+      solution:
+        "Built a fullstack application using SvelteKit 2 and Svelte 5 with TypeScript. Integrated Tavily Search API to fetch public sources, routed the context to either Google Gemini or a local Ollama instance for report generation, and used Zod for strict output validation. Implemented Redis via `ioredis` to cache generated reports by slug, significantly reducing latency and API costs for repeated queries. Added PWA features for offline support and dedicated health check endpoints for all external dependencies.",
+      results: [
+        "Automated Research: Generates comprehensive, structured reports including profile, salary estimates, positive/negative signals, and red flags in a single, seamless workflow.",
+        "Flexible AI Routing: Supports both cloud-based (Google Gemini) and local (Ollama) LLM providers with configurable timeouts and smart fallback mechanisms.",
+        "High Performance Caching: Redis integration ensures that repeated company searches return instantly from cache, optimizing both user experience and external API costs.",
+        "Robust Validation & Reliability: Zod schema validation guarantees structured, hallucination-free reports, while dedicated health check endpoints proactively monitor Tavily, Redis, and Ollama connectivity."
+      ],
+      technologies: [
+        "SvelteKit 2",
+        "Svelte 5",
+        "TypeScript",
+        "Tailwind CSS",
+        "Redis (ioredis)",
+        "Zod",
+        "Tavily API",
+        "Google Gemini",
+        "Ollama",
+        "Vite"
+      ],
+    },
+    link: "https://github.com/Arcaz22/company_checker.git",
+  },
+  {
     title: "AI-Powered Financial Management Bot",
     category: ["Bot", "Financial", "AI", "Backend"],
     description: "A smart Telegram bot leveraging Generative AI for automated expense tracking, receipt OCR, and team debt management.",
