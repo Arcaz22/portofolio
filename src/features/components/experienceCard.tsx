@@ -2,11 +2,11 @@ import { profile } from '@/features/data/profile';
 
 export function ExperienceCard() {
   return (
-    <div className="group h-full rounded-xl bg-slate-950/50 border border-slate-800 p-3 sm:p-4 flex flex-col transition-all duration-500 hover:border-amber-500/30">
+    <div className="group h-full rounded-2xl bg-[#111827]/80 border border-slate-800/80 p-4 sm:p-5 flex flex-col transition-all duration-500 hover:border-amber-500/40">
 
       <div className="flex items-center justify-between mb-3 shrink-0">
-        <p className="text-[8px] sm:text-[10px] font-bold text-slate-500 tracking-[0.2em] uppercase">
-          Work History
+          <p className="font-mono text-[9px] sm:text-[10px] font-medium text-slate-500 tracking-[0.16em] uppercase">
+          Career log
         </p>
         <div className="flex h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.8)]" />
       </div>
@@ -26,14 +26,14 @@ export function ExperienceCard() {
               </div>
 
               <div className="space-y-0.5">
-                <h3 className="text-[11px] sm:text-[13px] font-bold text-slate-200 leading-tight group-hover/item:text-white transition-colors">
+                <h3 className="text-xs sm:text-sm font-semibold text-slate-200 leading-tight group-hover/item:text-white transition-colors">
                   {exp.title}
                 </h3>
                 <div className="flex flex-col">
-                  <span className="text-[9px] sm:text-[10px] text-amber-500/80 font-medium tracking-wide">
+                  <span className="text-[10px] sm:text-xs text-amber-400/90 font-medium tracking-wide">
                     {exp.company}
                   </span>
-                  <span className="text-[8px] sm:text-[9px] text-slate-500 font-mono">
+                  <span className="text-[9px] sm:text-[10px] text-slate-500 font-mono">
                     {exp.year}
                   </span>
                 </div>
@@ -48,9 +48,9 @@ export function ExperienceCard() {
           href={profile.resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group/btn flex items-center justify-between bg-slate-900/50 hover:bg-amber-500/10 border border-slate-800 hover:border-amber-500/30 rounded-lg px-3 py-2 transition-all duration-300"
+          className="group/btn flex items-center justify-between bg-slate-900/70 hover:bg-amber-500/10 border border-slate-800 hover:border-amber-500/30 rounded-lg px-3 py-2.5 transition-all duration-300"
         >
-          <span className="text-white text-[9px] sm:text-[10px] font-bold tracking-wider">
+          <span className="text-white text-[10px] sm:text-xs font-semibold tracking-wide">
             <span className="sm:hidden">VIEW RESUME</span>
             <span className="hidden sm:inline">VIEW FULL RESUME</span>
           </span>

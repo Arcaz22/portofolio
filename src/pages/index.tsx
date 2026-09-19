@@ -11,8 +11,8 @@ export default function Home() {
   const isMobile = useIsMobile();
 
   return (
-    <main className="w-full min-h-screen overflow-x-hidden bg-slate-950 text-foreground">
-      <div className="mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 gap-4 p-4 sm:p-5 md:grid-cols-6 lg:grid-cols-12 lg:grid-rows-[minmax(0,1fr)_minmax(0,1fr)_auto] lg:overflow-hidden">
+    <main className="w-full min-h-screen overflow-x-hidden bg-[#0b1020] text-foreground">
+      <div className="mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 gap-3 p-3 sm:gap-4 sm:p-5 md:grid-cols-6 lg:grid-cols-12 lg:grid-rows-[minmax(0,1fr)_minmax(0,1fr)_auto] lg:overflow-hidden">
         <div className="min-h-[280px] md:col-span-4 md:min-h-[360px] lg:col-span-5 lg:min-h-0">
           <CreativeDevCard />
         </div>

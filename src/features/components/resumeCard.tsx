@@ -2,12 +2,12 @@ import { profile } from '@/features/data/profile';
 
 export function ResumeCard() {
   return (
-    <div className="h-full rounded-xl bg-slate-950/50 border border-slate-800 p-2 sm:p-3 flex flex-col">
+    <div className="h-full rounded-2xl bg-[#111827]/80 border border-slate-800/80 p-3 sm:p-4 flex flex-col">
       <p className="text-[8px] sm:text-[10px] font-semibold text-slate-400 tracking-widest mb-2 sm:mb-4">
-        RESUME
+        PROFILE
       </p>
 
-      <h3 className="text-[10px] sm:text-xs font-bold text-white mb-2 sm:mb-4">
+      <h3 className="text-xs sm:text-sm font-semibold text-white mb-2 sm:mb-4">
         Download CV
       </h3>
 

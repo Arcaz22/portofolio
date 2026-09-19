@@ -29,18 +29,19 @@ export function PortfolioCarousel() {
 
   return (
     <>
-      <div className="h-full rounded-2xl bg-slate-950/50 border border-slate-800 p-3 sm:p-4 md:p-6 flex flex-col justify-between overflow-y-auto no-scrollbar">
+      <div className="h-full rounded-2xl bg-[#111827]/90 border border-slate-800/80 p-4 sm:p-5 md:p-6 flex flex-col justify-between overflow-y-auto no-scrollbar">
         <div>
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2">{current.title}</h3>
+          <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-amber-400">Selected work · {current.year}</p>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-none tracking-[-0.04em] text-white mb-3">{current.title}</h3>
           <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-3">
             {current.category.map((cat) => (
-              <span key={cat} className="px-2 sm:px-3 py-0.5 sm:py-1 bg-slate-800/50 border border-slate-700 rounded-full text-[8px] sm:text-xs text-slate-300">
+              <span key={cat} className="px-2 py-1 bg-slate-800/60 border border-slate-700 rounded text-[9px] sm:text-[10px] font-mono text-slate-300">
                 {cat}
               </span>
             ))}
           </div>
           {current.link && (
-            <p className="text-xs sm:text-sm text-slate-300 mb-3 sm:mb-4 leading-relaxed font-medium">
+            <p className="max-w-2xl text-sm sm:text-base text-slate-300 mb-3 sm:mb-4 leading-relaxed">
               To explore the live demo, click this link to access the {" "}
               <a
                 href={current.link}
@@ -72,7 +73,7 @@ export function PortfolioCarousel() {
           {isMobile ? (
             <div className="space-y-2">
               <button onClick={handleCaseStudy} className="group/btn w-full px-4 py-3 bg-amber-500 text-white font-semibold rounded-lg flex items-center justify-center gap-2 transition-all">
-                CASE STUDY
+                Read case study
                 <svg className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </button>
               <div className="flex gap-2">
@@ -87,7 +88,7 @@ export function PortfolioCarousel() {
           ) : (
             <div className="flex gap-2">
               <button onClick={handleCaseStudy} className="group/btn flex-1 px-4 py-3 bg-amber-500 text-white font-semibold rounded-lg flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(245,158,11,0.1)]">
-                CASE STUDY
+                Read case study
                 <svg className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </button>
               <button onClick={handlePrev} className="group/nav p-3 border border-slate-700 hover:border-amber-500/50 hover:bg-amber-500/5 text-slate-300 hover:text-amber-500 rounded-lg transition-all">

@@ -26,10 +26,10 @@ export function FooterSection({ isMobile = false }: FooterSectionProps) {
 
         {/* Left side */}
         <div className="text-center sm:text-left">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white font-script">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.03em] text-white">
             {profile.name}
           </h2>
-          <p className="text-xs sm:text-sm text-amber-500 font-semibold tracking-widest mt-1">
+          <p className="mt-1 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-amber-400 sm:text-xs">
             {profile.bio}
           </p>
           <p className="text-[10px] sm:text-xs text-slate-400 mt-2">

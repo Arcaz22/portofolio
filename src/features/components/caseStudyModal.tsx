@@ -1,5 +1,6 @@
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogTitle,
 } from '@/components/ui/dialog';
@@ -30,6 +31,7 @@ export function CaseStudyModal({ isOpen, onClose, portfolio }: CaseStudyModalPro
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
         className="max-w-3xl w-[95vw] max-h-[90vh] p-0 bg-slate-950 border-slate-800 shadow-2xl overflow-hidden"
+        showCloseButton={false}
         onInteractOutside={(e) => e.preventDefault()}
       >
         <div className="relative h-full max-h-[90vh] flex flex-col">
@@ -52,13 +54,14 @@ export function CaseStudyModal({ isOpen, onClose, portfolio }: CaseStudyModalPro
               </DialogTitle>
             </div>
 
-            <button
-              onClick={onClose}
-              className="absolute right-4 top-4 p-2 rounded-full bg-slate-950/50 border border-slate-800 text-slate-400 hover:text-white hover:border-amber-500 transition-all z-10"
-              aria-label="Close modal"
-            >
-              <X size={18} />
-            </button>
+            <DialogClose asChild>
+              <button
+                className="absolute right-4 top-4 z-10 rounded-full border border-slate-800 bg-slate-950/50 p-2 text-slate-400 transition-all hover:border-amber-500 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                aria-label="Close modal"
+              >
+                <X size={18} aria-hidden="true" />
+              </button>
+            </DialogClose>
           </div>
 
           <div className="flex-1 overflow-y-auto scrollbar-hide">
