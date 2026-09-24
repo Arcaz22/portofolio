@@ -1,4 +1,4 @@
-import profileImg from '@/assets/profile.jpg';
+import profileImg from '@/assets/profile.webp';
 
 export function CreativeDevCard() {
   return (
@@ -6,6 +6,10 @@ export function CreativeDevCard() {
       <img
         src={profileImg}
         alt="Portrait of Chandra Arcychan Azfar"
+        width={2250}
+        height={2250}
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover object-[center_15%] transition-transform duration-700 group-hover:scale-[1.02]"
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/25 via-transparent to-transparent" />

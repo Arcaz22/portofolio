@@ -27,7 +27,7 @@ export default function Home() {
         </div>
 
         <div className="min-h-[320px] md:col-span-4 md:min-h-[300px] lg:col-span-10 lg:min-h-0">
-          <PortfolioCarousel />
+          <PortfolioCarousel isMobile={isMobile} />
         </div>
 
         <div className="min-h-[180px] md:col-span-2 md:min-h-[300px] lg:col-span-2 lg:min-h-0">

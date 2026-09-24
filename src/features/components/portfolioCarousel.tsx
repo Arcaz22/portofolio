@@ -1,29 +1,30 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { portfolios } from '@/features/data/portfolios';
-import { CaseStudyModal } from './caseStudyModal';
-import { useIsMobile } from '@/hooks/useMobile';
 
-export function PortfolioCarousel() {
+const CaseStudyModal = lazy(() =>
+  import('./caseStudyModal').then(({ CaseStudyModal: Modal }) => ({ default: Modal })),
+);
+
+interface PortfolioCarouselProps {
+  isMobile: boolean;
+}
+
+export function PortfolioCarousel({ isMobile }: PortfolioCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [selectedPortfolio, setSelectedPortfolio] = useState(portfolios[0]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const isMobile = useIsMobile();
   const current = portfolios[currentIndex];
 
   const handlePrev = () => {
     const newIndex = currentIndex === 0 ? portfolios.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
-    setSelectedPortfolio(portfolios[newIndex]);
   };
 
   const handleNext = () => {
     const newIndex = currentIndex === portfolios.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
-    setSelectedPortfolio(portfolios[newIndex]);
   };
 
   const handleCaseStudy = () => {
-    setSelectedPortfolio(current);
     setIsModalOpen(true);
   };
 
@@ -102,7 +103,11 @@ export function PortfolioCarousel() {
         </div>
       </div>
 
-      <CaseStudyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} portfolio={selectedPortfolio} />
+      {isModalOpen && (
+        <Suspense fallback={null}>
+          <CaseStudyModal isOpen onClose={() => setIsModalOpen(false)} portfolio={current} />
+        </Suspense>
+      )}
     </>
   );
 }
