@@ -1,40 +1,41 @@
 import { CreativeDevCard } from '@/features/components/creativeDevCard';
 import { ExperienceCard } from '@/features/components/experienceCard';
 import { FooterSection } from '@/features/components/footerSection';
-import { IdentityVisual } from '@/features/components/identityVisual';
+import { HomelabCard } from '@/features/components/homelabCard';
 import { PortfolioCarousel } from '@/features/components/portfolioCarousel';
-import { ResumeCard } from '@/features/components/resumeCard';
 import { StatusCard } from '@/features/components/statusCard';
+import { useHomelabStatus } from '@/hooks/useHombelabstatus';
 import { useIsMobile } from '@/hooks/useMobile';
 
 export default function Home() {
   const isMobile = useIsMobile();
+  const { data: homelab } = useHomelabStatus();
 
   return (
-    <main className="w-full min-h-screen overflow-x-hidden bg-[#0b1020] text-foreground">
-      <div className="mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 gap-3 p-3 sm:gap-4 sm:p-5 md:grid-cols-6 lg:grid-cols-12 lg:grid-rows-[minmax(0,1fr)_minmax(0,1fr)_auto] lg:overflow-hidden">
-        <div className="min-h-[280px] md:col-span-4 md:min-h-[360px] lg:col-span-5 lg:min-h-0">
+    <main className="portfolio-shell min-h-screen overflow-x-hidden text-foreground">
+      <div className="portfolio-grid mx-auto grid min-h-screen w-full max-w-360 grid-cols-1 gap-3 p-3 sm:gap-5 sm:p-6 lg:grid-cols-12 lg:grid-rows-[minmax(360px,auto)_minmax(320px,auto)_auto] lg:gap-5 lg:p-8 xl:p-10">
+        <div className="min-h-105 sm:min-h-130 md:min-h-125 lg:col-span-7 lg:min-h-0">
           <CreativeDevCard />
         </div>
 
-        <div className="min-h-[260px] md:col-span-2 md:min-h-[360px] lg:col-span-3 lg:min-h-0">
+        <div className="min-h-90 sm:min-h-105 lg:col-span-5 lg:min-h-0">
           <ExperienceCard />
         </div>
 
-        <div className="grid min-h-[220px] grid-cols-2 gap-4 md:col-span-6 md:min-h-[180px] lg:col-span-4 lg:min-h-0 lg:grid-cols-1 lg:grid-rows-2">
+        <div className="grid min-h-65 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:col-span-5 lg:col-start-8 lg:row-start-2 lg:min-h-0 lg:grid-cols-1 lg:grid-rows-2">
           <StatusCard />
-          <ResumeCard />
+          <HomelabCard
+            status={homelab?.status}
+            latency={homelab?.latency}
+            href={import.meta.env.VITE_HOMELAB_INSPECT_URL}
+          />
         </div>
 
-        <div className="min-h-[320px] md:col-span-4 md:min-h-[300px] lg:col-span-10 lg:min-h-0">
+        <div className="min-h-115 sm:min-h-105 lg:col-span-7 lg:col-start-1 lg:row-start-2 lg:min-h-0">
           <PortfolioCarousel isMobile={isMobile} />
         </div>
 
-        <div className="min-h-[180px] md:col-span-2 md:min-h-[300px] lg:col-span-2 lg:min-h-0">
-          <IdentityVisual isMobile={isMobile} />
-        </div>
-
-        <div className="md:col-span-6 lg:col-span-12">
+        <div className="lg:col-span-12 lg:row-start-3">
           <FooterSection isMobile={isMobile} />
         </div>
       </div>

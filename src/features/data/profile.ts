@@ -1,21 +1,19 @@
 import type { ProfileData, SocialLinks } from "@/features/portofolio";
 
 type ExtendedProfileData = ProfileData & {
-  resumeUrl: string;
   resumePdfUrl: string;
 };
 
 export const profile = {
   name: "Chandra Arcychan Azfar",
   title: "Software Developer",
-  location: "Bandung, Indonesia",
+  location: "Indonesia, GMT +7",
   based: "Based in Bandung",
   bio: "Software Developer",
   status: "Available for hire",
   statusLocation: "Remote / Bandung",
   yearsExperience: "2+",
-  resumeUrl: "https://docs.google.com/document/d/1J9n3pcprlrJi734ncq-YfMSIuvn7ODF_SkOfZaxqclw/edit?usp=sharing",
-  resumePdfUrl: "https://docs.google.com/document/d/1J9n3pcprlrJi734ncq-YfMSIuvn7ODF_SkOfZaxqclw/export?format=pdf",
+  resumePdfUrl: "/resume.pdf",
   experience: [
     {
       title: "Software Developer",

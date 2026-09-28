@@ -7,7 +7,8 @@ interface FooterSectionProps {
 
 export function FooterSection({ isMobile = false }: FooterSectionProps) {
   const currentYear = new Date().getFullYear();
-  const socialLinks = (["linkedin", "github", "email", "medium"] as const)
+  const email = profile.social.email ?? 'mailto:chandraarcychan@gmail.com';
+  const socialLinks = (["linkedin", "github", "medium"] as const)
     .map((platform) => {
       const href = profile.social[platform];
       if (!href) return null;
@@ -21,20 +22,16 @@ export function FooterSection({ isMobile = false }: FooterSectionProps) {
     .filter((item): item is { href: string; aria: string; path: string } => item !== null);
 
   return (
-    <footer className="rounded-2xl bg-slate-950/50 border border-slate-800 p-4 sm:p-6">
-      <div className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-6">
+    <footer className="surface-card flex h-full min-h-32.5 flex-col justify-between rounded-[22px] p-5 sm:rounded-[28px] sm:p-7">
+      <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
 
         {/* Left side */}
         <div className="text-center sm:text-left">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.03em] text-white">
-            {profile.name}
-          </h2>
-          <p className="mt-1 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-amber-400 sm:text-xs">
-            {profile.bio}
-          </p>
-          <p className="text-[10px] sm:text-xs text-slate-400 mt-2">
-            © {currentYear} — All rights reserved
-          </p>
+          <p className="eyebrow mb-2">Keep in touch</p>
+          <a href={email} className="text-lg font-semibold tracking-[-0.04em] text-white transition-colors hover:text-[#eeb55c] sm:text-xl">
+            {email.replace('mailto:', '')}
+          </a>
+          <p className="mt-2 text-[10px] text-slate-400 sm:text-xs">© {currentYear} — Open to useful work</p>
         </div>
 
         <div className="flex justify-center sm:justify-end gap-2 sm:gap-4">
@@ -50,9 +47,9 @@ export function FooterSection({ isMobile = false }: FooterSectionProps) {
       </div>
 
       {isMobile && (
-        <button className="w-full mt-4 px-4 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors text-sm">
+        <a href={email} className="primary-button mt-4 w-full">
           LET'S TALK
-        </button>
+        </a>
       )}
     </footer>
   );

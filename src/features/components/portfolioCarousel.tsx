@@ -1,5 +1,6 @@
 import { lazy, Suspense, useState } from 'react';
 import { portfolios } from '@/features/data/portfolios';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Layers3 } from 'lucide-react';
 
 const CaseStudyModal = lazy(() =>
   import('./caseStudyModal').then(({ CaseStudyModal: Modal }) => ({ default: Modal })),
@@ -30,25 +31,36 @@ export function PortfolioCarousel({ isMobile }: PortfolioCarouselProps) {
 
   return (
     <>
-      <div className="h-full rounded-2xl bg-[#111827]/90 border border-slate-800/80 p-4 sm:p-5 md:p-6 flex flex-col justify-between overflow-y-auto no-scrollbar">
+      <div className="surface-card flex h-full min-h-0 flex-col justify-between overflow-hidden rounded-[22px] p-5 sm:rounded-[28px] sm:p-7 lg:p-8">
         <div>
-          <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-amber-400">Selected work · {current.year}</p>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-none tracking-[-0.04em] text-white mb-3">{current.title}</h3>
+          <div className="mb-6 flex items-start justify-between gap-4">
+            <div>
+              <p className="eyebrow mb-2">Independent builds · {current.year}</p>
+              <p className="mb-4 text-[11px] text-white/42 sm:text-xs">Personal projects, designed and built independently</p>
+              <h3 className="max-w-2xl text-3xl font-semibold leading-[0.95] tracking-[-0.06em] text-white sm:text-4xl md:text-5xl">{current.title}</h3>
+            </div>
+            <div className="icon-box hidden sm:grid"><Layers3 size={18} strokeWidth={1.6} /></div>
+          </div>
           <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-3">
-            {current.category.map((cat) => (
-              <span key={cat} className="px-2 py-1 bg-slate-800/60 border border-slate-700 rounded text-[9px] sm:text-[10px] font-mono text-slate-300">
+            {current.category.slice(0, 4).map((cat) => (
+              <span key={cat} className="tag-chip">
                 {cat}
               </span>
             ))}
           </div>
+          {current.impactSummary && (
+            <p className="mb-3 max-w-2xl text-sm leading-relaxed text-white/58 sm:text-base">
+              {current.impactSummary}
+            </p>
+          )}
           {current.link && (
-            <p className="max-w-2xl text-sm sm:text-base text-slate-300 mb-3 sm:mb-4 leading-relaxed">
-              To explore the live demo, click this link to access the {" "}
+            <p className="mb-3 max-w-2xl text-sm leading-relaxed text-white/72 sm:mb-4 sm:text-base">
+              Explore the build via {" "}
               <a
                 href={current.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-amber-500 hover:text-amber-400 underline decoration-amber-500/30 underline-offset-4 transition-colors"
+                className="inline-flex items-center gap-1 text-[#eeb55c] underline decoration-[#eeb55c]/30 underline-offset-4 transition-colors hover:text-white"
               >
                 {(() => {
                   if (current.link.includes('t.me')) return 'Telegram Bot';
@@ -56,7 +68,7 @@ export function PortfolioCarousel({ isMobile }: PortfolioCarouselProps) {
                   if (current.link.includes('vercel.app')) return 'Live Site';
                   return 'Project Link';
                 })()}
-              </a>.
+              </a> <ArrowUpRight className="inline" size={14} />
             </p>
           )}
         </div>
@@ -65,38 +77,38 @@ export function PortfolioCarousel({ isMobile }: PortfolioCarouselProps) {
           <div className="flex items-center justify-between">
             <div className="flex gap-1.5">
               {portfolios.map((_, idx) => (
-                <div key={idx} className={`h-1 transition-all duration-300 ${idx === currentIndex ? 'w-6 bg-amber-500' : 'w-2 bg-slate-700'}`} />
+              <div key={idx} className={`h-1 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-8 bg-[#eeb55c]' : 'w-2 bg-white/15'}`} />
               ))}
             </div>
-            <span className="text-[10px] font-mono text-slate-500">{currentIndex + 1} / {portfolios.length}</span>
+            <span className="font-mono text-[10px] text-white/38">{String(currentIndex + 1).padStart(2, '0')} / {String(portfolios.length).padStart(2, '0')}</span>
           </div>
 
           {isMobile ? (
             <div className="space-y-2">
-              <button onClick={handleCaseStudy} className="group/btn w-full px-4 py-3 bg-amber-500 text-white font-semibold rounded-lg flex items-center justify-center gap-2 transition-all">
+              <button onClick={handleCaseStudy} className="primary-button group/btn w-full">
                 Read case study
                 <svg className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </button>
               <div className="flex gap-2">
-                <button onClick={handlePrev} className="group/prev flex-1 py-3 border border-slate-700 hover:border-amber-500/50 text-slate-300 hover:text-amber-500 rounded-lg transition-all text-sm flex items-center justify-center gap-1">
-                  <span className="transition-transform group-hover/prev:-translate-x-1">←</span> PREV
+                <button onClick={handlePrev} className="secondary-button group/prev flex-1">
+                  <ArrowLeft size={15} /> PREV
                 </button>
-                <button onClick={handleNext} className="group/next flex-1 py-3 border border-slate-700 hover:border-amber-500/50 text-slate-300 hover:text-amber-500 rounded-lg transition-all text-sm flex items-center justify-center gap-1">
-                  NEXT <span className="transition-transform group-hover/next:translate-x-1">→</span>
+                <button onClick={handleNext} className="secondary-button group/next flex-1">
+                  NEXT <ArrowRight size={15} />
                 </button>
               </div>
             </div>
           ) : (
             <div className="flex gap-2">
-              <button onClick={handleCaseStudy} className="group/btn flex-1 px-4 py-3 bg-amber-500 text-white font-semibold rounded-lg flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+              <button onClick={handleCaseStudy} className="primary-button group/btn flex-1">
                 Read case study
                 <svg className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </button>
-              <button onClick={handlePrev} className="group/nav p-3 border border-slate-700 hover:border-amber-500/50 hover:bg-amber-500/5 text-slate-300 hover:text-amber-500 rounded-lg transition-all">
-                <svg className="w-5 h-5 transition-transform group-hover/nav:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+              <button onClick={handlePrev} className="secondary-button px-3 group/nav">
+                <ArrowLeft size={17} />
               </button>
-              <button onClick={handleNext} className="group/nav p-3 border border-slate-700 hover:border-amber-500/50 hover:bg-amber-500/5 text-slate-300 hover:text-amber-500 rounded-lg transition-all">
-                <svg className="w-5 h-5 transition-transform group-hover/nav:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              <button onClick={handleNext} className="secondary-button px-3 group/nav">
+                <ArrowRight size={17} />
               </button>
             </div>
           )}

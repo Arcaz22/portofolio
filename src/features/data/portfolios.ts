@@ -3,6 +3,7 @@ export interface Portfolio {
   category: string[];
   description: string;
   year: string;
+  impactSummary?: string;
   caseStudy: {
     overview: string;
     challenge: string;
@@ -20,6 +21,7 @@ export const portfolios: Portfolio[] = [
     category: ["Backend", "Game API", "WebSocket", "Realtime"],
     description: "A Go backend API for social card games such as Truth or Dare, Truth or Truth, and Talk More with room-based realtime gameplay.",
     year: "2026",
+    impactSummary: "One-time WebSocket tickets, room state, and realtime broadcasts keep multiplayer sessions secure and synchronized.",
     caseStudy: {
       overview:
         "Social Deck is an API service for social card games. It handles authentication, deck and card management, game rooms, game state, and realtime gameplay events through WebSocket connections.",
@@ -162,29 +164,33 @@ export const portfolios: Portfolio[] = [
     },
     "link": "https://github.com/Arcaz22/monitoring_automation.git"
   },
-  {
-    title: "RAG-Based Psychology",
-    category: ["AI", "RAG", "Backend", "NLP", "OLLAMA"],
-    description: "A research project to explore Embedding and RAG (Retrieval-Augmented Generation) in the psychology domain using qwen2.5-coder:14b and local vector embeddings.",
+{
+    title: "Mindful – AI Health & Wellbeing Assistant",
+    category: ["AI / LLM", "FastAPI", "RAG & Search", "PostgreSQL", "Guardrails"],
+    description: "Source-grounded health information assistant featuring local Ollama runtime, real-time web retrieval via Tavily, and strict safety guardrails.",
     year: "2026",
     caseStudy: {
       overview:
-        "Mindful is a learning tool for deepening the implementation of RAG. This project uses psychology data from Kaggle to provide answers that are based on the context of psychology literature, not just general knowledge from an LLM",
+        "Mindful is an evidence-based digital health and wellbeing assistant engineered to answer non-diagnostic health inquiries. It combines local LLM inference via Ollama with dynamic web retrieval (Tavily) to deliver transparent, cited information while strictly avoiding autonomous medical diagnoses or prescription advice.",
       challenge:
-        "Understanding how vector space works and how to perform accurate retrieval from large psychology datasets without spending too many tokens on LLM.",
+        "Health-related AI agents face severe hallucination risks and high-stakes ethical concerns. The core challenge was enforcing deterministic guardrails for emergency queries (crisis, self-harm, drug interactions, severe allergies) while keeping low-latency inference on local hardware without cloud LLM lock-in.",
       solution:
-        "Building a RAG pipeline using FastAPI. The system preprocesses data from Kaggle, generates embeddings using the 'all-MiniLM-L6-v2' model locally for efficiency, and uses qwen2.5-coder:14b via the API to synthesize the final answer based on relevant context.",
+        "Engineered an asynchronous backend with FastAPI, SQLAlchemy (asyncpg), and pgvector on PostgreSQL for query logging, auditability, and vector embeddings. Implemented LangChain orchestrations integrating local Ollama models with Tavily Search for real-time literature retrieval. Designed a multi-layered guardrail pipeline that intercepts critical health scenarios, blocks dosage/prescription requests, and strictly mandates emergency disclaimers with Streamlit serving as the interactive client.",
       results: [
-        "Able to provide psychological consultation answers that reference specific data from the Kaggle dataset.",
-        "Cost efficiency by using local model embedding before making API calls to Gemini."
+        "Zero-hallucination compliance for critical guardrails (emergency rerouting, dosage refusals, and non-diagnostic disclaimers).",
+        "Deterministic audit trail and usage tracking persisted asynchronously via PostgreSQL and Alembic migrations.",
+        "Cost-effective local inference pipeline combining Ollama with targeted Tavily search retrievals."
       ],
       technologies: [
         "FastAPI",
-        "Qwen LLM (Generation)",
-        "all-MiniLM-L6-v2 (Hugging Face Embedding)",
-        "Vector Database",
-        "Kaggle Datasets",
-        "Sentence-Transformers"
+        "Ollama (Local LLM)",
+        "LangChain",
+        "Tavily Search API",
+        "PostgreSQL & pgvector",
+        "SQLAlchemy & Asyncpg",
+        "Alembic",
+        "Streamlit",
+        "Pydantic"
       ],
     },
     link: "https://github.com/Arcaz22/mindful.git",

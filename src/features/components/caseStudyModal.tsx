@@ -31,33 +31,34 @@ export function CaseStudyModal({ isOpen, onClose, portfolio }: CaseStudyModalPro
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
-        className="max-w-3xl w-[95vw] max-h-[90vh] p-0 bg-slate-950 border-slate-800 shadow-2xl overflow-hidden"
+        className="flex w-[calc(100%-1rem)] max-w-[calc(100%-1rem)] max-h-[92dvh] flex-col overflow-hidden rounded-[28px] border-white/10 bg-[#111827] p-0 shadow-[0_30px_100px_rgba(0,0,0,.45)] sm:w-[95vw] sm:max-w-5xl sm:max-h-[calc(100dvh-2rem)]"
         showCloseButton={false}
         onInteractOutside={(e) => e.preventDefault()}
       >
-        <div className="relative h-full max-h-[90vh] flex flex-col">
+        <div className="relative flex h-full max-h-[92dvh] flex-col sm:max-h-[calc(100dvh-2rem)]">
 
-          <div className="flex-none h-32 sm:h-48 bg-linear-to-br from-amber-500/20 via-slate-900 to-slate-950 relative border-b border-slate-800">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
+          <div className="relative flex-none h-36 border-b border-white/10 bg-[#151b2b] sm:h-44">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_20%,rgba(238,181,92,.12),transparent_32%)]" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-[#eeb55c]/45" />
             <div className="absolute bottom-6 left-6 sm:left-10 right-16">
               <div className="flex flex-wrap gap-2 mb-2">
                 {portfolio.category.map((cat) => (
                   <span
                     key={cat}
-                    className="px-2 py-0.5 bg-amber-500 text-[10px] font-bold text-black rounded uppercase tracking-tighter"
+                    className="rounded-full border border-[#eeb55c]/25 bg-[#eeb55c]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#eeb55c]"
                   >
                     {cat}
                   </span>
                 ))}
               </div>
-              <DialogTitle className="text-2xl sm:text-4xl font-black text-white leading-none">
-                {portfolio.title.toUpperCase()}
+              <DialogTitle className="text-2xl font-semibold leading-[.95] tracking-tighter text-white sm:text-4xl">
+                {portfolio.title}
               </DialogTitle>
             </div>
 
             <DialogClose asChild>
               <button
-                className="absolute right-4 top-4 z-10 rounded-full border border-slate-800 bg-slate-950/50 p-2 text-slate-400 transition-all hover:border-amber-500 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                className="absolute right-4 top-4 z-10 rounded-full border border-white/10 bg-black/10 p-2 text-white/45 transition-all hover:border-[#eeb55c]/60 hover:text-[#eeb55c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#eeb55c] focus-visible:ring-offset-2 focus-visible:ring-offset-[#151b2b]"
                 aria-label="Close modal"
               >
                 <X size={18} aria-hidden="true" />
@@ -65,34 +66,34 @@ export function CaseStudyModal({ isOpen, onClose, portfolio }: CaseStudyModalPro
             </DialogClose>
           </div>
 
-          <div className="flex-1 overflow-y-auto scrollbar-hide">
-            <div className="p-6 sm:p-10">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="min-h-0 flex-1 overflow-y-auto scrollbar-hide">
+            <div className="p-5 sm:p-8 md:p-10">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1.6fr)_minmax(15rem,0.9fr)] md:gap-10">
 
-                <div className="md:col-span-2 space-y-8">
+                <div className="space-y-8">
                   <section>
-                    <h3 className="text-amber-500 text-xs font-bold tracking-[0.2em] uppercase mb-3 flex items-center gap-2">
-                      <span className="w-4 h-px bg-amber-500" /> Overview
+                    <h3 className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#eeb55c]">
+                      <span className="h-px w-4 bg-[#eeb55c]" /> Overview
                     </h3>
-                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-medium">
+                    <p className="text-sm font-medium leading-relaxed text-white/72 sm:text-base">
                       {portfolio.caseStudy.overview}
                     </p>
                   </section>
 
                   <section>
-                    <h3 className="text-amber-500 text-xs font-bold tracking-[0.2em] uppercase mb-3 flex items-center gap-2">
-                      <span className="w-4 h-px bg-amber-500" /> The Challenge
+                    <h3 className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#eeb55c]">
+                      <span className="h-px w-4 bg-[#eeb55c]" /> The Challenge
                     </h3>
-                    <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-slate-300 text-sm leading-relaxed italic">
+                    <div className="rounded-2xl border border-white/10 bg-[#0d1220]/65 p-4 text-sm leading-relaxed text-white/62">
                       "{portfolio.caseStudy.challenge}"
                     </div>
                   </section>
 
                   <section>
-                    <h3 className="text-amber-500 text-xs font-bold tracking-[0.2em] uppercase mb-3 flex items-center gap-2">
-                      <span className="w-4 h-px bg-amber-500" /> Solution
+                    <h3 className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#eeb55c]">
+                      <span className="h-px w-4 bg-[#eeb55c]" /> Solution
                     </h3>
-                    <p className="text-slate-300 text-sm leading-relaxed">
+                    <p className="text-sm leading-relaxed text-white/62">
                       {portfolio.caseStudy.solution}
                     </p>
                   </section>
@@ -100,26 +101,26 @@ export function CaseStudyModal({ isOpen, onClose, portfolio }: CaseStudyModalPro
 
                 <div className="space-y-8">
                   <section>
-                    <h3 className="text-white text-xs font-bold tracking-[0.2em] uppercase mb-4">Results</h3>
+                    <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/82">Results</h3>
                     <ul className="space-y-3">
                       {portfolio.caseStudy.results.map((result, idx) => (
                         <li key={idx} className="flex items-start gap-3">
-                          <div className="w-5 h-5 rounded bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                          <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-[#9fd7b6]/20 bg-[#9fd7b6]/10">
+                            <div className="h-1.5 w-1.5 rounded-full bg-[#9fd7b6]" />
                           </div>
-                          <span className="text-slate-400 text-xs font-medium leading-tight">{result}</span>
+                          <span className="text-sm font-medium leading-relaxed text-white/58">{result}</span>
                         </li>
                       ))}
                     </ul>
                   </section>
 
                   <section>
-                    <h3 className="text-white text-xs font-bold tracking-[0.2em] uppercase mb-4">Tech Stack</h3>
+                    <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/82">Tech Stack</h3>
                     <div className="flex flex-wrap gap-2">
                       {portfolio.caseStudy.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-[10px] font-mono text-slate-400 hover:border-amber-500/50 hover:text-amber-500 transition-colors"
+                          className="rounded-full border border-white/10 bg-white/3 px-2.5 py-1 font-mono text-[10px] text-white/48 transition-colors hover:border-[#eeb55c]/50 hover:text-[#eeb55c]"
                         >
                           {tech}
                         </span>
@@ -127,9 +128,9 @@ export function CaseStudyModal({ isOpen, onClose, portfolio }: CaseStudyModalPro
                     </div>
                   </section>
 
-                  <div className="pt-6 border-t border-slate-800">
-                    <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Timeline</p>
-                    <p className="text-sm font-bold text-white">{portfolio.year}</p>
+                  <div className="border-t border-white/10 pt-6">
+                    <p className="mb-1 text-[10px] uppercase tracking-[0.18em] text-white/35">Timeline</p>
+                    <p className="text-sm font-semibold text-white">{portfolio.year}</p>
                   </div>
                 </div>
               </div>
