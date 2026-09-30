@@ -18,7 +18,7 @@ export const profile = {
     {
       title: "Software Developer",
       company: "PT. Saka Sakti Inovasi",
-      year: "Apr 2025 - Present",
+      year: "Apr 2025 - Oct 2026",
     },
     {
       title: "Junior Developer",

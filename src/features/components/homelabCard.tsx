@@ -15,7 +15,7 @@ const statusCopy: Record<HomelabStatus, { label: string; detail: string; classNa
   unknown: { label: 'Checking', detail: 'Waiting for health data', className: 'homelab-status--unknown' },
 };
 
-export function HomelabCard({ status = 'unknown', latency, lastChecked, href = 'https://github.com/Arcaz22' }: HomelabCardProps) {
+export function HomelabCard({ status = 'unknown', latency, lastChecked, href }: HomelabCardProps) {
   const currentStatus = statusCopy[status];
   const isOnline = status === 'online';
 
@@ -38,11 +38,9 @@ export function HomelabCard({ status = 'unknown', latency, lastChecked, href = '
           <span className="flex items-center gap-1.5"><Cpu size={13} /> Bare-metal server · Ubuntu</span>
           <span className="font-mono text-[10px] text-[#9fd7b6]">{latency ? `${latency} ms` : lastChecked ?? 'NODE 01'}</span>
         </div>
-        {isOnline ? (
-          <a href={href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#9fd7b6] transition-colors hover:text-white">Inspect systems <ExternalLink size={13} /></a>
-        ) : (
-          <span aria-disabled="true" title="Available when the homelab is online" className="mt-4 inline-flex cursor-not-allowed items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/25">Inspect systems <ExternalLink size={13} /></span>
-        )}
+        {isOnline && href ? (
+          <a href={href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#9fd7b6] transition-colors hover:text-white">View monitoring <ExternalLink size={13} /></a>
+        ) : null}
       </div>
     </div>
   );

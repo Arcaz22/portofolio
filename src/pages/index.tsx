@@ -10,6 +10,7 @@ import { useIsMobile } from '@/hooks/useMobile';
 export default function Home() {
   const isMobile = useIsMobile();
   const { data: homelab } = useHomelabStatus();
+  const homelabInspectUrl = 'https://rampung.space/monitoring';
 
   return (
     <main className="portfolio-shell min-h-screen overflow-x-hidden text-foreground">
@@ -27,7 +28,7 @@ export default function Home() {
           <HomelabCard
             status={homelab?.status}
             latency={homelab?.latency}
-            href={import.meta.env.VITE_HOMELAB_INSPECT_URL}
+            href={homelabInspectUrl}
           />
         </div>
 
