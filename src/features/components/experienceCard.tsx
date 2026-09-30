@@ -31,7 +31,7 @@ export function ExperienceCard() {
         </div>
 
         <div className="mt-3 border-t border-white/10 pt-3">
-          <a href={profile.resumePdfUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/72 transition-colors hover:text-[#eeb55c]">
+          <a href={profile.resumePdfUrl} download="Chandra-Arcychan-Azfar-Resume.pdf" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/72 transition-colors hover:text-[#eeb55c]">
             View full resume <ArrowUpRight size={14} />
           </a>
         </div>
